@@ -18,7 +18,14 @@ args = parse_arguments()
 print(f"args.dir_index: ", args.dir_index)
 
 
-login(token='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')
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+login(token=os.getenv("HF_TOKEN"))
+access_token = os.getenv("HF_TOKEN")
 
 
 def generate_test_prompt(data_point):

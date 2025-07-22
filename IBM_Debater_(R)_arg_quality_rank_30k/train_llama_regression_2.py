@@ -13,10 +13,14 @@ from peft import LoraConfig, PeftConfig
 from trl import SFTTrainer
 from torch import nn
 from networkx.readwrite import json_graph
+from dotenv import load_dotenv
+import os
 
+# Load environment variables from .env file
+load_dotenv()
 
-login(token='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')
-access_token = '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'
+login(token=os.getenv("HF_TOKEN"))
+access_token = os.getenv("HF_TOKEN")
 
 csv_file_path = "arg_quality_rank_30k.csv"
 df = pd.read_csv(csv_file_path)

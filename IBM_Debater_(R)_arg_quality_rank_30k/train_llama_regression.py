@@ -16,12 +16,16 @@ from sklearn.metrics import (accuracy_score,
 import bitsandbytes as bnb
 from peft import LoraConfig, PeftConfig
 from trl import SFTTrainer
+from dotenv import load_dotenv
+import os
 
+# Load environment variables from .env file
+load_dotenv()
 
 model_name = 'meta-llama/Meta-Llama-3-8B'
 output_dir = "llama-3.1-fine-tuned-model-regression"
-login(token='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')
-access_token = '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'
+login(token=os.getenv("HF_TOKEN"))
+access_token = os.getenv("HF_TOKEN")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
