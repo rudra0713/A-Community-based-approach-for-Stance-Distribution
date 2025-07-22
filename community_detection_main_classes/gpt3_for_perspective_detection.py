@@ -1,8 +1,13 @@
 import os
 import openai, tiktoken, sys
 
+from dotenv import load_dotenv
+import os
 
-openai.api_key = "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"
+# Load environment variables from .env file
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # few_shot_text = "Create a phrase level summary that describes the perspective in the text\n[TEXT]: The Second Amendment is not an unlimited right to own guns., The militia mentioned in the Second Amendment would have been composed of almost all adult men and, in turn, that most adult men should not have their right to own firearms infringed.,  The Second Amendment of the US Constitution protects individual gun ownership.\n[OUTPUT]: Arguments involving Second Amendment \n###\n[TEXT]: 1. More gun control laws would reduce gun deaths., While gun ownership doubled in the twentieth century, the murder rate decreased., The presence of a gun makes a conflict more likely to become violent.\n[OUTPUT]: Impact on Crime Rate\n###\n[TEXT]: Strict gun control laws do not work in Mexico, and will not work in the US., Countries with restrictive gun control laws have lower gun homicide and suicide rates than the United States.\n[OUTPUT]: Impact of Gun Control Laws in Other Countries\n###\n[TEXT]: Using tablets is more expensive than using print textbooks., E-textbooks on tablets cost less than print textbooks., A broken tablet requires an experienced technician to fix, which can be costly and time-consuming.\n[OUPUT]: Cost based Analysis between textbooks and tablets\n###\n"
 
